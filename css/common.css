@@ -1,0 +1,184 @@
+/* document --------------------------- */
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* web font + system font */
+    font-family: 'Poppins', 'Pretendard', -apple-system, BlinkMacSystemFont, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji!important;
+    font-size: 62.5%; /* 1rem = 1rem */
+    font-weight: 400;
+    letter-spacing: -0.02rem;
+    color: var(--black);
+    /* smoothing font */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    transition: color .6s, background-color .6s;
+}
+
+/* typography --------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+b, strong {
+    /* add the correct font weight in Chrome, Edge, and Safari */
+    font-weight: 600;
+}
+
+/* list style --------------------------- */
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* embedded content --------------------------- */
+img {
+    /* remove the border on images inside links in IE 10 */
+    border-style: none;
+}
+
+/* form --------------------------- */
+button, input, textarea, select, option {
+    /* web font + system font */
+    font-family: 'Poppins', 'Pretendard', -apple-system, BlinkMacSystemFont, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji!important;
+    /* Remove the inheritance of text transform in Edge, Firefox and IE. */
+    text-transform: none;
+    background-color: transparent;
+    font-weight: 400;
+    color: var(--black);
+    /* Show the overflow in Edge and IE. */
+    overflow: visible;
+    cursor: pointer;
+}
+
+button:disabled, input:disabled {
+    cursor: not-allowed;
+}
+
+button, [type='button'], [type='reset'], [type='submit'] {
+    /* correct the inability to style clickable types in iOS and Safari */
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+}
+
+[type='checkbox'], [type='radio'] {
+    /* remove the padding in IE 10 */
+    padding: 0;
+    margin: 0;
+}
+
+textarea {
+    width: 100%;
+    /* remove the default vertical scrollbar in IE 10+ */
+    overflow: auto;
+    resize: none;
+}
+
+/* link --------------------------- */
+a {
+    color: var(--black);
+    text-decoration: none;
+    /* remove the gray background on active links in IE 10 */
+    background-color: transparent;
+    cursor: pointer;
+}
+
+a:visited, a:hover, a:active {
+    color: var(--black);
+    text-decoration: none;
+}
+
+a:focus {
+    color: var(--black);
+    text-decoration: none;
+}
+
+:focus {
+    outline: none;
+}
+
+/* scroll */
+::-webkit-scrollbar {width: .4rem; height: .4rem; background-color: transparent;}
+::-webkit-scrollbar-thumb {background-color: var(--gray200); border-radius: 1rem; background-clip: padding-box;}
+::-webkit-scrollbar-track {background-color: transparent;}
+
+/* root ----------------------- */
+:root {
+    --black: #121212;
+    --white: #FDFDFE;
+
+    --red: #AE0401;
+    --blue: #2F80ED;
+    --yellow: #F2C94C;
+
+    --gray400: #4F4F4F; /* font */
+    --gray300: #888888; /* font */
+    --gray200: #E4E4E4; /* border */
+    --gray100: #F2F2F2; /* background */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+
+        --black: #FDFDFE;
+        --white: #1E1E20;
+
+        --gray400: #E4E4E4;
+        --gray200: #4F4F4F;
+        --gray100: #333333;
+    }
+}
+
+/* common ------------------------------ */
+::selection {background-color: var(--yellow);}
+::-moz-selection {background-color: var(--yellow);}
+
+/* font style */
+.underline {text-decoration: underline; text-underline-offset: .4rem;}
+
+/* button */
+button {font-size: 1.6rem; width: fit-content; height: fit-content; padding: 0; margin: 0; border: 0; background-color: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer;}
+
+/* cont-box box */
+.cont-box + .cont-box {margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--gray200);}
+
+.box {display: flex; flex-flow: column; row-gap: 2rem;}
+.box + .box {margin-top: 3rem;}
+.box > p {font-size: 1.6rem; line-height: 1.6;}
+
+/* title */
+.title {display: flex; align-items: center; justify-content: space-between;}
+.title > h4 {font-size: 1.8rem; font-weight: 600;}
+
+@media screen and (max-width: 767px) {
+    .title > h4 {font-size: 2rem;}
+}
+
+/* tab menu */
+.tab-wrap {margin-top: -1rem; padding-top: 1rem; background-color: var(--white); position: sticky; top: 0; z-index: 99; border-radius: 0 0 .6rem .6rem}
+.tab-menu {width: 100%; padding: .4rem; margin-bottom: 3rem; border-radius: .6rem; background-color: var(--gray100); display: flex; align-items: center; column-gap: .4rem;}
+.tab-menu > li {width: calc(100% - .8rem - .8rem); height: 3.2rem; font-size: 1.4rem; color: var(--gray300); border-radius: .4rem; background-color: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer;}
+.tab-menu > li.active {font-weight: 600; color: var(--black); background-color: var(--white);}
+
+.tab-cont {display: none;}
+.tab-cont.active {display: block;}
+
+.tab-sort {display: flex; align-items: center; column-gap: .8rem;}
+.tab-sort > li {display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--gray300); cursor: pointer;}
+.tab-sort > li.active {font-weight: 600; color: var(--blue);}
+.tab-sort > li + li::before {content: ''; display: block; width: 1px; height: 1.2rem; background-color: var(--gray200); margin-right: .8rem;}
+
+.sort-cont {display: none;}
+.sort-cont.active {display: block;}
